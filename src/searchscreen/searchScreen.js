@@ -34,14 +34,12 @@ class SearchScreen extends Component {
       if(array[i] == item) {
          array.splice(i, 1);
       }
-  }
+    }
+    return array
   }
 
   setValue(field, event) {
-    console.log(event);
     var newState = Object.assign({}, this.state);
-    console.log("field: " + field)
-    console.log("here is newstate" + newState[field])
     if (newState[field] === undefined) {
       newState[field] = [];
       if (event.target.checked || event.target.selected) {
@@ -55,12 +53,10 @@ class SearchScreen extends Component {
         newState[field].push(event.target.value);
         this.setState(newState);
       } else {
-        console.log("you delete!")
-        newState[field]= this.removeA(newState[field],event.target.value);
+        newState[field]= this.removeA(newState[field], event.target.value);
         this.setState(newState);
       }
     }
-
     console.log(this.state);
   }
 
