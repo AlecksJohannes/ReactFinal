@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "react-final",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,21 @@
     "jest-cli": "^22.0.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+=======
+  "name": "login-coderschool",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bloomer": "^0.6.3",
+    "bulma": "^0.6.1",
+    "query-string": "^5.0.1",
+    "react": "^16.2.0",
+    "react-bulma": "^0.0.1",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-router-dom": "^4.2.2",
+>>>>>>> bcb880973a1c49af656442bc5aebb7f4b087bf86
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -18,4 +34,7 @@
     "eject": "react-scripts eject"
   }
 }
+<<<<<<< HEAD
  
+=======
+>>>>>>> bcb880973a1c49af656442bc5aebb7f4b087bf86

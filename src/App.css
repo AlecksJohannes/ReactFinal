@@ -1,3 +1,4 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 .App {
   text-align: center;
 }
@@ -20,4 +21,9 @@
 
 .App-intro {
   font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
