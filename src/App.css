@@ -1,8 +1,4 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-
-.App {
-  text-align: center;
-}
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

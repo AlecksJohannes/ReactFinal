@@ -1,0 +1,22 @@
+Label.label{
+  width: 140px;
+  margin-right: 20px;
+}
+Label.checkbox{
+  width: 120px;
+  margin-right: 30px;
+}
+.delete{
+  margin-left: 10px !important;
+} 
+
+.input.score{
+  width: 30px;
+}
+
+span.scale{
+  margin-left: 40px;
+}
+.btnFunction{
+  margin-top: 50px;
+}
