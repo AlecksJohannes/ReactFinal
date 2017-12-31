@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Welcome from './welcome/welcome.js'
 import "bulma/css/bulma.css";
 import { Container, Box } from 'bloomer';
 import SearchResult from './components/SearchResult';
