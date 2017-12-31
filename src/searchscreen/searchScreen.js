@@ -15,21 +15,23 @@ import {
   Button
 } from "bloomer";
 import "./searchScreen.css";
+
 class SearchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       startPoint: 0,
-      endPoint: 10
+      endPoint: 10,
+      language: ["english"],
+      additionalSkill: ["agile"]
+
     };
   }
   handleSeachFilter(e) {
     e.preventDefault();
-    console.log(this.state);
-    // console.log(this.state.endPoint);
   }
+
   removeA(array, item) {
-    console.log("this item is delete:" + item)
     for(var i = array.length - 1; i >= 0; i--) {
       if(array[i] == item) {
          array.splice(i, 1);
@@ -39,17 +41,18 @@ class SearchScreen extends Component {
   }
 
   setValue(field, event) {
+
     var newState = Object.assign({}, this.state);
     if (newState[field] === undefined) {
       newState[field] = [];
-      if (event.target.checked || event.target.selected) {
+      if (event.target.checked || (event.target.selected === undefined && event.target.value)) {
         newState[field].push(event.target.value);
         this.setState(newState);
       }  
     } 
     else 
     {
-      if (event.target.checked || event.target.selected) {
+      if (event.target.checked ||  (event.target.selected === undefined && event.target.value)) {
         newState[field].push(event.target.value);
         this.setState(newState);
       } else {
@@ -57,10 +60,36 @@ class SearchScreen extends Component {
         this.setState(newState);
       }
     }
-    console.log(this.state);
+  }
+
+  delValue(field,event){
+    var newState = Object.assign({}, this.state);
+    if (newState[field] != undefined) {
+      newState[field]= this.removeA(newState[field], event.target.value);
+      this.setState(newState);
+    }
+  }
+
+  handleClear(){
+    window.location.reload();
   }
 
   render() {
+
+    let tagLanguages = this.state.language.map((lan) => { 
+      return  (
+      <Tag isSize="medium">
+        {lan} <Delete isSize="medium" value={lan} onClick={this.delValue.bind(this, "language")} />
+      </Tag> )
+    })
+
+    let tagSkills = this.state.additionalSkill.map((skill) => { 
+      return  (
+      <Tag isSize="medium">
+        {skill} <Delete isSize="medium" onClick={this.delValue.bind(this, "additionalSkill")} />
+      </Tag> )
+    })
+
     return (
       <div>
         <Section isSize="small" isBold>
@@ -80,8 +109,7 @@ class SearchScreen extends Component {
                     value="android"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
-                    {" "}
-                    Android{" "}
+                    Android
                   </Checkbox>
                 </Control>
                 <Control>
@@ -90,8 +118,7 @@ class SearchScreen extends Component {
                     value="iOS"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
-                    {" "}
-                    iOS{" "}
+                    iOS
                   </Checkbox>
                 </Control>
                 <Control>
@@ -100,8 +127,7 @@ class SearchScreen extends Component {
                     value="rubyOnRails"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
-                    {" "}
-                    Rails{" "}
+                    Rails
                   </Checkbox>
                 </Control>
                 <Control>
@@ -110,8 +136,7 @@ class SearchScreen extends Component {
                     value="nodeJS"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
-                    {" "}
-                    Node Js{" "}
+                    Node Js
                   </Checkbox>
                 </Control>
                 <Control>
@@ -120,8 +145,7 @@ class SearchScreen extends Component {
                     value="reactNT"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
-                    {" "}
-                    React Native{" "}
+                    React Native
                   </Checkbox>
                 </Control>
               </Field>
@@ -133,8 +157,7 @@ class SearchScreen extends Component {
                     value="junior"
                     onChange={this.setValue.bind(this, "experience")}
                   >
-                    {" "}
-                    Junior{" "}
+                    Junior
                   </Checkbox>
                 </Control>
                 <Control>
@@ -143,8 +166,7 @@ class SearchScreen extends Component {
                     value="midLevel"
                     onChange={this.setValue.bind(this, "experience")}
                   >
-                    {" "}
-                    Mid-level{" "}
+                    Mid-level
                   </Checkbox>
                 </Control>
                 <Control>
@@ -153,8 +175,7 @@ class SearchScreen extends Component {
                     value="senior"
                     onChange={this.setValue.bind(this, "experience")}
                   >
-                    {" "}
-                    Senior{" "}
+                    Senior
                   </Checkbox>
                 </Control>
               </Field>
@@ -166,8 +187,7 @@ class SearchScreen extends Component {
                     value="HoChiMinh"
                     onChange={this.setValue.bind(this, "location")}
                   >
-                    {" "}
-                    HoChiMinh{" "}
+                    HoChiMinh
                   </Checkbox>
                 </Control>
                 <Control>
@@ -176,7 +196,6 @@ class SearchScreen extends Component {
                     value="HaNoi"
                     onChange={this.setValue.bind(this, "location")}
                   >
-                    {" "}
                     HaNoi
                   </Checkbox>
                 </Control>
@@ -186,8 +205,7 @@ class SearchScreen extends Component {
                     value="DaNang"
                     onChange={this.setValue.bind(this, "location")}
                   >
-                    {" "}
-                    DaNang{" "}
+                    DaNang
                   </Checkbox>
                 </Control>
               </Field>
@@ -209,15 +227,10 @@ class SearchScreen extends Component {
               <Field isGrouped id="listLanguage">
                 <Label />
                 <Control>
-                  <Tag isSize="medium">
-                    English <Delete isSize="medium" />
-                  </Tag>
-                  <Tag isSize="medium">
-                    French <Delete isSize="medium" />
-                  </Tag>
+                  {tagLanguages}
                 </Control>
               </Field>
-              <Field isGrouped id="language">
+              <Field isGrouped id="addSkill">
                 <Label>Additional Skills:</Label>
                 <Control>
                   <Select
@@ -230,15 +243,10 @@ class SearchScreen extends Component {
                   </Select>
                 </Control>
               </Field>
-              <Field isGrouped id="listLanguage">
+              <Field isGrouped id="addSkill">
                 <Label />
                 <Control>
-                  <Tag isSize="medium">
-                    Agile <Delete isSize="medium" />
-                  </Tag>
-                  <Tag isSize="medium">
-                    Big Data <Delete isSize="medium" />
-                  </Tag>
+                  { tagSkills }
                 </Control>
               </Field>
               <Field isGrouped id="language">
@@ -269,10 +277,10 @@ class SearchScreen extends Component {
                   </Button>
                 </Control>
                 <Control>
-                  <Button isColor="danger">Cancel</Button>
+                  <Button isColor="danger" onClick={this.props.handleCancel}>Cancel</Button>
                 </Control>
                 <Control>
-                  <Button isColor="danger">Clear All</Button>
+                  <Button isColor="danger" onClick={this.handleClear}>Clear All</Button>
                 </Control>
               </Field>
             </form>
