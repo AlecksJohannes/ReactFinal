@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Portfolio from './Portfolio';
+import UploadJD  from './UploadJD';
+import YouTube from './YouTube';
 import logo from './logo.svg';
 import './App.css';
 import Welcome from './welcome/welcome.js'
@@ -13,6 +16,7 @@ class App extends Component {
     return (
       <Container>
         <Welcome />
+        <Portfolio />
         <EnhancedSearchResult />
       </Container>
     );
