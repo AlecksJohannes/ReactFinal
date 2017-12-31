@@ -86,7 +86,7 @@ class SearchScreen extends Component {
     let tagSkills = this.state.additionalSkill.map((skill) => { 
       return  (
       <Tag isSize="medium">
-        {skill} <Delete isSize="medium" onClick={this.delValue.bind(this, "additionalSkill")} />
+        {skill} <Delete isSize="medium" value={skill} onClick={this.delValue.bind(this, "additionalSkill")} />
       </Tag> )
     })
 
