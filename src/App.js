@@ -12,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <Container>
+        <Welcome />
         <EnhancedSearchResult />
       </Container>
     );

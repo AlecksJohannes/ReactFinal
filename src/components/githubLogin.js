@@ -14,7 +14,7 @@ class GitHubLogin extends Component {
       try {
         var url_code = querystring.parse(popup.location.search)
       } catch(e) {}
-      if (url_code.access_token) {
+      if (url_code && url_code.access_token) {
         window.sessionStorage.setItem('key', JSON.stringify(url_code))
         popup.close()
       } else {

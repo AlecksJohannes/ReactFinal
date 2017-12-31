@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import GoogleLogin from '../component/googleLogin';
-import FacebookLogin from '../component/facebookLogin';
-import GitHubLogin from '../component/githubLogin';
-import 'bulma/css/bulma.css';
+import GoogleLogin from '../components/googleLogin';
+import FacebookLogin from '../components/facebookLogin';
+import GitHubLogin from '../components/githubLogin';
 import bannercoderschool from '../bannercoderschool.jpg';
 // import  GitHubLogin  from 'react-github-login';
 import "./welcome.css";
