@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Section, Container, Title, Field, Label, Control, Input, Table, Select, Content, Button, LevelItem, Level } from 'bloomer';
 
 export default class UploadJD extends Component {
     constructor(props) {
@@ -45,59 +46,75 @@ export default class UploadJD extends Component {
 
     render() {
         return (
-            <div>
-        
-                <br/>Upload Jobs<br/><br/>
-                
-                <input type="file" multiple size="50" onChange={this.handleUploadFiles} /><br/><br/>
+            <Section>
+                <Container>
+                    
+                    <Title isSize={1}>Upload Jobs</Title>
 
-                <table width="100%" margin="100" border="1px solid black">
-                    <tbody>
-                        <tr>
-                            <th>File</th>
-                            <th>Name</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Last Modified Date</th>
-                        </tr>
-                        {this.state.fileArray.map((file, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{index + 1}</td>
-                                    <td>{file.name}</td>
-                                    <td>{(file.size/1024).toFixed(0)} KB</td>
-                                    <td>{file.type}</td>
-                                    <td>{new Date(file.lastModified).toUTCString()}</td>
+                    <Field>
+                        <Label hasTextAlign="left">Browse Your Computer</Label>
+                        <Control>
+                            <Input type="file" multiple size="50" placeholder='Files' onChange={this.handleUploadFiles} />
+                        </Control>
+                        <Content hasTextAlign="left"><b>Tip:</b> Use the Control or the Shift key to select multiple files.</Content>
+                    </Field>
 
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-                <br/>
-                <p><b>Tip:</b> Use the Control or the Shift key to select multiple files.</p>
+                    <Table isBordered isStriped isNarrow>
+                        <thead>
+                            <tr className='is-selected'>
+                                <th>File</th>
+                                <th>Name</th>
+                                <th>Size</th>
+                                <th>Type</th>
+                                <th>Last Modified Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.fileArray.map((file, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{file.name}</td>
+                                        <td>{(file.size/1024).toFixed(0)} KB</td>
+                                        <td>{file.type}</td>
+                                        <td>{new Date(file.lastModified).toUTCString()}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </Table>
 
-                <br/>
+                    <Field hasAddons>
+                        <Label hasTextAlign="left">Assign JDs to class:</Label>
+                        <Control>
+                            <Select value={this.state.class} onChange={this.handleClassChange}>
+                                <option value="React">React</option>
+                                <option value="Ruby on Rails">Ruby on Rails</option>
+                                <option value="iOS">iOS</option>
+                                <option value="Android">Android</option>
+                                <option value="Node JS">Node JS</option>
+                            </Select>
+                        </Control>
+                    </Field>
 
-                File Number:
-                <input type="text" onChange={this.handleUserInput} />
-                <button onClick={this.handleDeleteFile}>Delete</button> 
-                <br/><br/>
-                
-                Class:
-                <select value={this.state.class} onChange={this.handleClassChange}>
-                    <option value="React">React</option>
-                    <option value="Ruby on Rails">Ruby on Rails</option>
-                    <option value="iOS">iOS</option>
-                    <option value="Android">Android</option>
-                    <option value="Node JS">Node JS</option>
-                </select>
-                
+                    <Field hasAddons>
+                        <Label hasTextAlign="left">Choose file to delete:</Label>
+                        <Control>
+                            <Input type="text" placeholder="File Number" onChange={this.handleUserInput} />
+                        </Control>
+                        <Control>
+                            <Button isColor="danger" onClick={this.handleDeleteFile}>Delete</Button> 
+                        </Control>
+                    </Field>
+                    
+                    <Field>
+                        <Control>
+                            <Button isColor="primary" onClick={this.handleSubmit}>Submit</Button> 
+                        </Control>
+                    </Field>
 
-                <br/><br/>
-
-                <input type="submit" value="Submit" onClick={this.handleSubmit} />
-            </div>
+                </Container>
+            </Section>
         )
     }
 }
