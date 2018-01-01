@@ -45,9 +45,12 @@ handleSearch(filter, data){
            />)
           }
         else
-          {return (<EnhancedSearchResult/>)}  
+          {return 
+            (<EnhancedSearchResult
+              onFilter={this.state.onFilter}
+              dataSearch={this.state.dataSearch}      
+            />)}  
     }
-    console.log(handleScreen());  
     return (
       <Container>
        
