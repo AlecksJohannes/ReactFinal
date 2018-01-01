@@ -10,6 +10,7 @@ class GitHubLogin extends Component {
 
   fetchDataGithub(popup) {
     if(popup.closed) {
+      window.location.reload();
     } else {
       try {
         var url_code = querystring.parse(popup.location.search)
