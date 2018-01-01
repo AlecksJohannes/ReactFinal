@@ -16,18 +16,23 @@ class App extends Component {
 constructor(props){
   super (props);
   this.state={
-    
+    onFilter: true,
+    dataSearch: {}
   }
 }
   render() {
-    console.log(window.sessionStorage.getItem('key') == null);
     let handleScreen = () => {
       if (window.sessionStorage.getItem('key') == null) {
         return ( <Welcome /> )
       }
-      else return (
-        <SearchScreen />
-      )
+      else 
+        if (this.props.onFilter)
+          return (<SearchScreen 
+            dataSearch = {this.state.dataSearch.bind(this)}
+            onFilter = {this.state.onFilter.bind(this)}
+           />)
+        else
+          return (<EnhancedSearchResult/>)  
     }
     console.log(handleScreen());  
     return (
