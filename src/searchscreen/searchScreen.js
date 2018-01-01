@@ -29,8 +29,8 @@ class SearchScreen extends Component {
   }
   handleSeachFilter(e) {
     e.preventDefault();
-    this.props.onFilter = false
-    this.props.dataSearch = this.state
+    console.log(this.props);
+    this.props.handleSearch(false, this.state)
   }
 
   removeA(array, item) {

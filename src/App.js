@@ -19,20 +19,33 @@ constructor(props){
     onFilter: true,
     dataSearch: {}
   }
+  this.handleSearch = this.handleSearch.bind(this)
 }
+
+handleSearch(filter, data){
+  this.setState(
+    {
+      onFilter: filter,
+      dataSearch: data
+    }
+  )
+}
+
+
   render() {
     let handleScreen = () => {
       if (window.sessionStorage.getItem('key') == null) {
         return ( <Welcome /> )
       }
       else 
-        if (this.props.onFilter)
+        if (this.state.onFilter == true)
+          {
           return (<SearchScreen 
-            dataSearch = {this.state.dataSearch.bind(this)}
-            onFilter = {this.state.onFilter.bind(this)}
+            handleSearch = {this.handleSearch}
            />)
+          }
         else
-          return (<EnhancedSearchResult/>)  
+          {return (<EnhancedSearchResult/>)}  
     }
     console.log(handleScreen());  
     return (
