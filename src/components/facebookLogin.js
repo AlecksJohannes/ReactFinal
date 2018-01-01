@@ -23,33 +23,26 @@ class FacebookLogin extends Component{
      }(document, 'script', 'facebook-jssdk'));
   }
 
-  facebookLogin = () => {
+  facebookLogin() {
     this.checkLoginState()
-
   }
 
   checkLoginState() {
-    console.log("checking login status.......");
-    if (!window.sessionStorage.getItem('key')) 
-    {
-      FB.login(
-        function(response){
-          this.statusChangeCallback(response)
-        }.bind(this)
-      );  
-    }
-    else {
-      alert("you are login!")
-    }
-        
+    return new Promise((reponse,reject) => {
+      if (!window.sessionStorage.getItem('key')) 
+      {
+        reponse(FB.login(
+          function(reponse){
+            this.statusChangeCallback(reponse)
+          }.bind(this)
+        ))  
       
-
+      }
+    })   
   }
   statusChangeCallback(response){
-    console.log("we are checking the status changing call back");
     console.log(response);
     if (response.status=== "connected"){
-      alert(" you are connected, now you will fetch data");
       this.fetchDataFacebook();
     }
     else if (response.status ==="not_authorized")
@@ -61,19 +54,18 @@ class FacebookLogin extends Component{
   };
 
   fetchDataFacebook = () => {
-    console.log("haha you are fetching data from facebook");
     FB.api('/me', {fields: 'email, name'}, function(response) {
       window.sessionStorage.setItem("key", JSON.stringify(response))
+      window.location.reload();
     }
     
   )
-  console.log('hi:' + this.props.scope);
   }
 
 	render(){
 		return(
-				<Button isColor='info' style={{width:100}} onClick ={() => this.facebookLogin() }
-          // scope="public_profile, email"
+        <Button isColor='info' style={{width:100}} onClick ={() => this.facebookLogin() 
+        }
         >
 					Facebook
 				</Button>

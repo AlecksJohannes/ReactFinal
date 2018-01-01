@@ -7,7 +7,7 @@ import bannercoderschool from '../bannercoderschool.jpg';
 import "./welcome.css";
 import { PostData } from "../service/PostData.js";
 import { Redirect } from 'react-router-dom';
-import { Columns, Column, Button, Section, Container, Control, CardHeader, CardHeaderTitle,   CardImage, Image, CardContent, Card, Input, CardFooter } from 'bloomer';
+import { Columns, Column, Button, Section, Container, Control, CardHeader, CardHeaderTitle, CardImage, Image, CardContent, Card, Input, CardFooter } from 'bloomer';
 class Welcome extends Component {
 	constructor(props) {
 		super(props)
@@ -81,7 +81,7 @@ class Welcome extends Component {
 						<Columns isCentered >
 							<Card style={{ width: 400 }}>
 								<CardImage style={{ margin: 10 }}>
-									<Image src={bannercoderschool} />
+									<Image src={bannercoderschool} className="searchCoderschoolImage"/>
 								</CardImage>
 								<CardHeader>
 									<CardHeaderTitle hasTextAlign='centered' style={{ display: 'block', color: '#e60000' }} >
