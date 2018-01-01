@@ -1,5 +1,6 @@
 import React from 'react';
 import { getSearchResult } from '../../http/request';
+import _ from 'lodash';
 
 function withResult(WrappedComponent) {
   return class extends React.Component {
@@ -18,8 +19,21 @@ function withResult(WrappedComponent) {
       })
     }
 
+    sortCharges(sort) {
+      var sort = JSON.parse(sort)
+      var sortedCharges
+      if(sort.isAscending) {
+        sortedCharges = _.sortBy(this.state.users, sort.option)
+      } else {
+        sortedCharges = _.sortBy(this.state.users, sort.option).reverse()
+      }
+      this.setState({
+        users: sortedCharges
+      })
+    }
+
     render() {
-      return(<WrappedComponent {...this.props} fetchUsers={this.state.users} />)
+      return(<WrappedComponent {...this.props}  filter={this.sortCharges.bind(this)} fetchUsers={this.state.users} />)
     } 
   }
 }
