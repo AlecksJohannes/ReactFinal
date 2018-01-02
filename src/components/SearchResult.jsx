@@ -46,7 +46,7 @@ class SearchResult extends Component {
         </tr>
       )
     })
-    if(this.state.isProfile==false){
+    // if(this.state.isProfile==false){
     return (
       <div>
         <Button isColor="info" onClick={this.handleBack}>Back</Button> 
@@ -196,7 +196,7 @@ class SearchResult extends Component {
       </div>
     );
   }
-  }
+  // }
 }
 
 export default SearchResult;
