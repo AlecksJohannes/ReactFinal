@@ -14,7 +14,8 @@ function withResult(WrappedComponent) {
     componentDidMount() {
       getSearchResult('http://reactfinale.herokuapp.com/students', this.props.searchOptions).then((response) => {
         this.setState({
-          users: [...response,Student1]
+          // users: [...response,Student1]
+          users: response
         })
       })
     }
