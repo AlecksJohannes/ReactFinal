@@ -18,6 +18,7 @@ class GitHubLogin extends Component {
       } catch(e) {}
       if (url_code && url_code.access_token) {
         window.sessionStorage.setItem('key', JSON.stringify(url_code))
+        this.props.responseGithub(this)
         popup.close()
       } else {
         setTimeout(this.fetchDataGithub.bind(this, popup), 0)

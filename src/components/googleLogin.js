@@ -9,14 +9,14 @@ class GoogleLogin extends Component{
 	};
 	fetchDataGoogle(popup) {
     if(popup.closed) {
-      setTimeout(2000);
-      {window.location.reload()}
+
     } else {
       try {
         var url_code = querystring.parse(popup.location.search)
       } catch(e) {}
       if (url_code && url_code.access_token) {
         window.sessionStorage.setItem('key', JSON.stringify(url_code))
+        this.props.responseGoogle(this)
         popup.close()
       } else {
         setTimeout(this.fetchDataGoogle.bind(this, popup), 0)
