@@ -12,22 +12,23 @@ import { withResult } from './components/hoc/CoderschoolAPI';
 const EnhancedSearchResult = withResult(SearchResult);
 
 class App extends Component {
-  
-constructor(props){
-  super (props);
-  this.state={
-    onFilter: true,
-    dataSearch: {}
+    
+  constructor(props){
+    super (props);
+    this.state={
+      onFilter: true,
+      dataSearch: {}
+    }
+    this.handleSearch = this.handleSearch.bind(this)
   }
-  this.handleSearch = this.handleSearch.bind(this)
-}
 
-handleSearch(filter, data){
-  this.setState({
-    onFilter: filter,
-    dataSearch: data
-  })
-}
+  handleSearch(filter, data){
+    this.setState({
+      onFilter: filter,
+      dataSearch: data
+    })
+  }
+
 
 
   render() {
@@ -43,7 +44,7 @@ handleSearch(filter, data){
            />)
           };
         if (this.state.onFilter == false) {
-            return (<EnhancedSearchResult />)
+            return (<EnhancedSearchResult searchOptions={this.state.dataSearch} />)
               // (<EnhancedSearchResult
               //   onFilter = {this.state.onFilter}
               //   dataSearch = {this.state.dataSearch}      

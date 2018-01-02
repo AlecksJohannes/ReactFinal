@@ -31,11 +31,11 @@ class SearchResult extends Component {
       return (
         <tr>
           <td>{data.id}</td>
-          <td><a href="" onClick={this.handleSelectStudent}>{data.full_name}</a></td>
-          <td>{data.location}</td>
+          <td><a href="" onClick={this.handleSelectStudent}>{data.username}</a></td>
+          <td>{data.location || 'Ho Chi Minh City'}</td>
           <td>{data.class_taken}</td>
           <td>{data.experience}</td>
-          <td>{data.additional_skill}</td>
+          <td>{data.additional_skills.map((data) => { return data.name }).join(', ')}</td>
           <td>{data.score}</td>
           <td>{data.languages.map((data) => { return data.name }).join(', ')}</td>
           <td>{data.nation_languages.map((data) => { return data.name }).join(', ')}</td>

@@ -3,7 +3,6 @@ import { getSearchResult } from '../../http/request';
 import _ from 'lodash';
 
 function withResult(WrappedComponent) {
-  console.log('die')
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -13,8 +12,7 @@ function withResult(WrappedComponent) {
     }
 
     componentDidMount() {
-      getSearchResult('http://reactfinale.herokuapp.com/students').then((response) => {
-        console.log(response)
+      getSearchResult('http://reactfinale.herokuapp.com/students', this.props.searchOptions).then((response) => {
         this.setState({
           users: response
         })
