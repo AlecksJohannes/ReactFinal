@@ -38,14 +38,12 @@ handleSearch(filter, data){
         return ( <Welcome /> )
       }
       else 
-        if (this.state.onFilter == true)
-          {
-          return (<SearchScreen 
-            handleSearch = {this.handleSearch}
-           />)
-          }
-        else
-          {return (<EnhancedSearchResult/>)}  
+        return (
+          <div>
+            <SearchScreen handleSearch = {this.handleSearch} />
+            <EnhancedSearchResult/>
+          </div>
+        )
     }
     console.log(handleScreen());  
     return (

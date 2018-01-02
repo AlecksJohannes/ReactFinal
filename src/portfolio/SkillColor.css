@@ -1,0 +1,64 @@
+.ES6 {
+    background-color: #ECD645;
+    color: black;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.HTML5 {
+    background-color: #E24D2C;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.CSS3 {
+    background-color: #137FC3;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.NODEJS {
+    background-color: #8CC325;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.RAILS {
+    background-color: #CA0813;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.ANDROID {
+    background-color: #A5C545;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.PYTHON {
+    background-color: #396C94;
+    color: #FDC243;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+
+.GIT {
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 5px;
+}
+

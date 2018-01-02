@@ -1,0 +1,64 @@
+{
+    "profile": {
+        "id": 2,
+        "full_name": "Domenico Drohan",
+        "email": "ddrohan0@zimbio.com",
+        "phone": "732-140-6273",
+        "course_taken": ["iOS", "Android", "React"],
+        "location": "Pilcuyo",
+        "language": ["English", "Hungarian", "Vietnamese"],
+        "additional_skill": ["UK Immigration", "Express", "MongoDB", "Mongoose", "jQuery", "Bootstrap"],
+        "score": 84,
+        "experience": "Junior",
+        "skill": ["ES6", "HTML5", "CSS3", "NODEJS", "RAILS", "PYTHON", "GIT"],
+        "img_url": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    "intro_video": {
+        "video_url": "lWYfKyWYUQc"
+    },
+    "projects": {
+        "proj1": {
+            "title": "Kampu",
+            "website_url": "https://www.google.com/",
+            "github_url": "https://github.com/",
+            "summary": "Application developed using MongoDB, Node.js, Mongoose and Express. It allows the user to create a user and post campgrounds to share with other people.",
+            "img_url": "https://i.imgur.com/rrPhjt6.png"
+        },
+        "proj2": {
+            "title": "Guess the Color game",
+            "website_url": "https://www.google.com/",
+            "github_url": "https://github.com/",
+            "summary": "Simple front-end application developed using JavaScript, jQuery, CSS and HTML.",
+            "img_url": "https://i.imgur.com/3ncOCXF.png"
+        }
+    },
+    "employment": {
+        "emp1": {
+            "job_title": "Front-end Developer",
+            "company": "AwesomeCompany Ltd.",
+            "responsibility": ["Fighting zombies and making the world a better place", "Making new cryptocurrency", "Running for President in 2020"] 
+        }
+    },
+    "feedback": {
+        "feed1": {
+            "name": "Mark Zuckerberg",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "img_url": "https://randomuser.me/api/portraits/men/2.jpg"
+        },
+        "feed2": {
+            "name": "Jennifer Lawrence",
+            "comment": "You can't just ask customers what they want and then try to give that to them. By the time you get it built, they'll want something new.",
+            "img_url": "https://randomuser.me/api/portraits/women/1.jpg"
+        },
+        "feed3": {
+            "name": "Steve Jobs",
+            "comment": "It's really hard to design products by focus groups. A lot of times, people don't know what they want until you show it to them.",
+            "img_url": "https://randomuser.me/api/portraits/men/3.jpg"
+        },
+        "feed4": {
+            "name": "Stephenie Meyer",
+            "comment": "When you give everyone a voice and give people power, the system usually ends up in a really good place. So, what we view our role as, is giving people that power.",
+            "img_url": "https://randomuser.me/api/portraits/women/2.jpg"
+        }
+    }
+}

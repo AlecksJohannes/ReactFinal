@@ -1,0 +1,28 @@
+{
+    "profile": {
+        "img": "./src/img/profile_pic_placeholder.png",
+        "id": 3,
+        "full_name": "Karlee Brocklehurst",
+        "email": "kbrocklehurst2@smugmug.com",
+        "phone": "671-340-1267",
+        "courses_taken": ["Rails", "NodeJS"],
+        "location": "Daijiaba",
+        "language": ["English", "Guaraní", "Vietnamese"],
+        "additional_skill": ["Resume Writing", "Express", "SQLite", "Mongoose", "jQuery", "Bootstrap"],
+        "score": 74,
+        "experience": "Senior",
+        "skills": ["ES6", "HTML5", "NODEJS", "PYTHON", "GIT"]
+    },
+    "intro_video": {
+
+    },
+    "projects": {
+
+    },
+    "employment": {
+
+    },
+    "feedback": {
+
+    }
+}

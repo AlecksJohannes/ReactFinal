@@ -1,24 +1,3 @@
-img {
-    border: 1px solid #ddd;
-    border-radius: 50%;
-}
-
-.fa-linkedin-square {
-    color: #0077B5;
-}
-
-.fa-github-square {
-    color: #333;
-}
-
-.fa-facebook-square {
-    color: #3b5998;
-}
-
-.profile-logos {
-    padding-top: 50px;
-}
-
 .accordion {
     background-color: #eee;
     color: #444;
@@ -33,7 +12,7 @@ img {
 }
 
 .active, .accordion:hover {
-    background-color: #ccc; 
+    background-color: #ccc;
 }
 
 .box {
@@ -42,6 +21,7 @@ img {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    margin-bottom: 80px;
 }
 
 .accordion:after {

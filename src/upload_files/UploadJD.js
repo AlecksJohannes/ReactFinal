@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Section, Container, Title, Field, Label, Control, Input, Table, Select, Content, Button, LevelItem, Level } from 'bloomer';
+import { Section, Container, Title, Field, Label, Control, Input, Table, Select, Content, Button } from 'bloomer';
 
 export default class UploadJD extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             fileArray: [],
-            userInput: '',
             class: 'React'
         };
         this.handleUploadFiles = this.handleUploadFiles.bind(this);
         this.handleDeleteFile = this.handleDeleteFile.bind(this);
-        this.handleUserInput = this.handleUserInput.bind(this);
         this.handleClassChange = this.handleClassChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -24,15 +22,10 @@ export default class UploadJD extends Component {
         });
     }
 
-    handleDeleteFile() {
-        let index = this.state.userInput - 1
+    handleDeleteFile(index) {
         this.setState(prevState => ({
             fileArray: [...prevState.fileArray.slice(0,index), ...prevState.fileArray.slice(index+1)]
-        }));
-    }
-
-    handleUserInput(e) {
-        this.setState({ userInput:e.target.value });
+        }));   
     }
 
     handleClassChange(e) {
@@ -54,7 +47,7 @@ export default class UploadJD extends Component {
                     <Field>
                         <Label hasTextAlign="left">Browse Your Computer</Label>
                         <Control>
-                            <Input type="file" multiple size="50" placeholder='Files' onChange={this.handleUploadFiles} />
+                            <Input type="file" isColor="white" multiple size="50" placeholder='Files' onChange={this.handleUploadFiles} />
                         </Control>
                         <Content hasTextAlign="left"><b>Tip:</b> Use the Control or the Shift key to select multiple files.</Content>
                     </Field>
@@ -67,6 +60,7 @@ export default class UploadJD extends Component {
                                 <th>Size</th>
                                 <th>Type</th>
                                 <th>Last Modified Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +70,15 @@ export default class UploadJD extends Component {
                                         <td>{index + 1}</td>
                                         <td>{file.name}</td>
                                         <td>{(file.size/1024).toFixed(0)} KB</td>
-                                        <td>{file.type}</td>
+                                        <td>{file.type}</td>    
                                         <td>{new Date(file.lastModified).toUTCString()}</td>
+                                        <td>
+                                            <Button 
+                                                isColor="danger" 
+                                                onClick={() => this.handleDeleteFile(index)}>
+                                                <i class="fa fa-trash fa"></i>
+                                            </Button>
+                                        </td>
                                     </tr>
                                 )
                             })}
@@ -85,7 +86,7 @@ export default class UploadJD extends Component {
                     </Table>
 
                     <Field hasAddons>
-                        <Label hasTextAlign="left">Assign JDs to class:</Label>
+                        <Label hasTextAlign="left">Assign JDs to class:&nbsp;&nbsp;</Label>
                         <Control>
                             <Select value={this.state.class} onChange={this.handleClassChange}>
                                 <option value="React">React</option>
@@ -96,20 +97,10 @@ export default class UploadJD extends Component {
                             </Select>
                         </Control>
                     </Field>
-
-                    <Field hasAddons>
-                        <Label hasTextAlign="left">Choose file to delete:</Label>
-                        <Control>
-                            <Input type="text" placeholder="File Number" onChange={this.handleUserInput} />
-                        </Control>
-                        <Control>
-                            <Button isColor="danger" onClick={this.handleDeleteFile}>Delete</Button> 
-                        </Control>
-                    </Field>
                     
                     <Field>
                         <Control>
-                            <Button isColor="primary" onClick={this.handleSubmit}>Submit</Button> 
+                            <Button isColor="info" onClick={this.handleSubmit}>Submit</Button> 
                         </Control>
                     </Field>
 
