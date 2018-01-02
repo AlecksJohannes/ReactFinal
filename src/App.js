@@ -23,13 +23,10 @@ constructor(props){
 }
 
 handleSearch(filter, data){
-  this.setState(
-    {
-      onFilter: filter,
-      dataSearch: data
-    }
-  )
-
+  this.setState({
+    onFilter: filter,
+    dataSearch: data
+  })
 }
 
 
@@ -40,31 +37,24 @@ handleSearch(filter, data){
         return ( <Welcome /> )
       }
       else 
-        if (this.state.onFilter == true)
-          {
+        if (this.state.onFilter == true) {
           return (<SearchScreen 
             handleSearch = {this.handleSearch}
            />)
           };
-        if (this.state.onFilter == false)
-          {
-            console.log("why")
-            return 
+        if (this.state.onFilter == false) {
+            return (<EnhancedSearchResult />)
               // (<EnhancedSearchResult
               //   onFilter = {this.state.onFilter}
               //   dataSearch = {this.state.dataSearch}      
               // />)
-              (<EnhancedSearchResult />)
           }  
     }
     console.log("handlescreen", handleScreen());  
  
     return (
       <Container>
-       
         {handleScreen()}
-        {/* <Portfolio /> */}
-        {/* <EnhancedSearchResult /> */}
       </Container>
     );
   }
