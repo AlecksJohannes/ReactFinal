@@ -106,7 +106,7 @@ class SearchScreen extends Component {
                 <Control>
                   <Checkbox
                     id="android"
-                    value="android"
+                    value="Android"
                     onChange={this.setValue.bind(this, "classTaken")}
                   >
                     Android
