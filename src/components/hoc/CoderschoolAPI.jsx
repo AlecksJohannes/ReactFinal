@@ -1,7 +1,7 @@
 import React from 'react';
 import { getSearchResult } from '../../http/request';
 import _ from 'lodash';
-
+import Student1 from '../../student1.json';
 function withResult(WrappedComponent) {
   console.log('die')
   return class extends React.Component {
@@ -16,12 +16,13 @@ function withResult(WrappedComponent) {
       getSearchResult('http://reactfinale.herokuapp.com/students').then((response) => {
         console.log(response)
         this.setState({
-          users: response
+          users: {...response,Student1}
         })
       })
     }
 
     sortCharges(sort) {
+      console.log(users);
       var sort = JSON.parse(sort)
       var sortedCharges
       if(sort.isAscending) {
