@@ -16,13 +16,13 @@ function withResult(WrappedComponent) {
       getSearchResult('http://reactfinale.herokuapp.com/students').then((response) => {
         console.log(response)
         this.setState({
-          users: {...response,Student1}
+          users: [...response,Student1]
         })
       })
     }
 
     sortCharges(sort) {
-      console.log(users);
+      console.log(this.state.users);
       var sort = JSON.parse(sort)
       var sortedCharges
       if(sort.isAscending) {

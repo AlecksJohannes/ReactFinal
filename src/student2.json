@@ -7,8 +7,8 @@
         "phone": "732-140-6273",
         "class_taken": ["iOS", "Android", "React"],
         "location": "Pilcuyo",
-        "languages": ["English", "Hungarian", "Vietnamese"],
-        "additional_skills": ["UK Immigration", "Express", "MongoDB", "Mongoose", "jQuery", "Bootstrap"],
+        "languages": [{"name" : "English"}, { "name" : "Hungarian"}, { "name" : "Vietnamese"}],
+        "additional_skills": [{ "name": "UK Immigration"}, { "name": "Express"}, { "name": "MongoDB"}, {"name": "Mongoose"}, {"name": "jQuery"}, { "name": "Bootstrap"}],
         "score": 84,
         "experience": "Junior",
         "skills": ["ES6", "HTML5", "CSS3", "NODEJS", "RAILS", "PYTHON", "GIT"]
