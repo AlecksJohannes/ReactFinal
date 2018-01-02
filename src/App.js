@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Portfolio from './Portfolio';
-import UploadJD  from './UploadJD';
-import YouTube from './YouTube';
+import Portfolio from './portfolio/Portfolio';
+import UploadJD  from './upload_files/UploadJD';
 import './App.css';
 import Welcome from './welcome/welcome.js'
 import SearchScreen from './searchscreen/searchScreen';
@@ -38,12 +37,14 @@ handleSearch(filter, data){
         return ( <Welcome /> )
       }
       else 
-        return (
-          <div>
-            <SearchScreen handleSearch = {this.handleSearch} />
-            <EnhancedSearchResult/>
-          </div>
-        )
+        if (this.state.onFilter == true)
+          {
+          return (<SearchScreen 
+            handleSearch = {this.handleSearch}
+           />)
+          }
+        else
+          {return (<EnhancedSearchResult/>)}  
     }
     console.log(handleScreen());  
     return (
