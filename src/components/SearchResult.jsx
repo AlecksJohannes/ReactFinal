@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Table } from 'bloomer';
+import { Table, Button } from 'bloomer';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
@@ -9,6 +9,9 @@ class SearchResult extends Component {
     this.state = {
       selectedOption: ''
     }
+    this.handleSelection = this.handleSelection.bind(this);
+    this.handleSelectStudent = this.handleSelectStudent.bind(this);
+    this.handleBack = this.handleBack.bind(this);
   }
   handleSelection(value) {
     console.log(value)
@@ -16,12 +19,18 @@ class SearchResult extends Component {
       selectedOption: value
     })
   }
+  handleSelectStudent() {
+
+  }
+  handleBack() {
+
+  }
   render() {
     const child = this.props.fetchUsers.map((data) => {
       return (
         <tr>
           <td>{data.id}</td>
-          <td>{data.full_name}</td>
+          <td><a href="" onClick={this.handleSelectStudent}>{data.full_name}</a></td>
           <td>{data.location}</td>
           <td>{data.class_taken}</td>
           <td>{data.experience}</td>
@@ -33,9 +42,10 @@ class SearchResult extends Component {
 
     return (
       <div>
+        <Button isColor="info" onClick={this.handleBack}>Back</Button> 
         <Table isBordered isStriped isNarrow>
           <thead>
-            <tr>
+            <tr className='is-selected'>
               <th>ID</th>
               <th>Name</th>
               <th>Location</th>
@@ -47,7 +57,7 @@ class SearchResult extends Component {
             <tr>
               <th></th>
               <th>
-                <Select
+              <Select
                   name="form-field-name"
                   value={this.state.selectedOption}
                   onChange={(selectedOption) => {

@@ -29,10 +29,12 @@ handleSearch(filter, data){
       dataSearch: data
     }
   )
+
 }
 
 
   render() {
+    console.log( "this.state:", this.state);  
     let handleScreen = () => {
       if (window.sessionStorage.getItem('key') == null) {
         return ( <Welcome /> )
@@ -43,20 +45,26 @@ handleSearch(filter, data){
           return (<SearchScreen 
             handleSearch = {this.handleSearch}
            />)
-          }
-        else
-          {return 
-            (<EnhancedSearchResult
-              onFilter={this.state.onFilter}
-              dataSearch={this.state.dataSearch}      
-            />)}  
+          };
+        if (this.state.onFilter == false)
+          {
+            console.log("why")
+            return 
+              // (<EnhancedSearchResult
+              //   onFilter = {this.state.onFilter}
+              //   dataSearch = {this.state.dataSearch}      
+              // />)
+              (<EnhancedSearchResult />)
+          }  
     }
+    console.log("handlescreen", handleScreen());  
+ 
     return (
       <Container>
        
         {handleScreen()}
-        {/* <Portfolio />
-        <EnhancedSearchResult /> */}
+        {/* <Portfolio /> */}
+        {/* <EnhancedSearchResult /> */}
       </Container>
     );
   }

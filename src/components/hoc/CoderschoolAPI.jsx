@@ -3,6 +3,7 @@ import { getSearchResult } from '../../http/request';
 import _ from 'lodash';
 
 function withResult(WrappedComponent) {
+  console.log('die')
   return class extends React.Component {
     constructor(props) {
       super(props);
