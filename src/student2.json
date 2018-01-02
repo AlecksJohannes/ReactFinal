@@ -5,10 +5,10 @@
         "full_name": "Domenico Drohan",
         "email": "ddrohan0@zimbio.com",
         "phone": "732-140-6273",
-        "courses_taken": ["iOS", "Android", "React"],
+        "class_taken": ["iOS", "Android", "React"],
         "location": "Pilcuyo",
-        "language": ["English", "Hungarian", "Vietnamese"],
-        "additional_skill": ["UK Immigration", "Express", "MongoDB", "Mongoose", "jQuery", "Bootstrap"],
+        "languages": ["English", "Hungarian", "Vietnamese"],
+        "additional_skills": ["UK Immigration", "Express", "MongoDB", "Mongoose", "jQuery", "Bootstrap"],
         "score": 84,
         "experience": "Junior",
         "skills": ["ES6", "HTML5", "CSS3", "NODEJS", "RAILS", "PYTHON", "GIT"]

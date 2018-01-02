@@ -22,8 +22,8 @@ class SearchScreen extends Component {
     this.state = {
       startPoint: 0,
       endPoint: 10,
-      language: ["english"],
-      additionalSkill: ["agile"]
+      languages: ["english"],
+      additional_skills: ["agile"]
 
     };
   }
@@ -76,17 +76,17 @@ class SearchScreen extends Component {
 
   render() {
 
-    let tagLanguages = this.state.language.map((lan) => { 
+    let tagLanguages = this.state.languages.map((lan) => { 
       return  (
       <Tag isSize="medium">
-        {lan} <Delete isSize="medium" value={lan} onClick={this.delValue.bind(this, "language")} />
+        {lan} <Delete isSize="medium" value={lan} onClick={this.delValue.bind(this, "languages")} />
       </Tag> )
     })
 
-    let tagSkills = this.state.additionalSkill.map((skill) => { 
+    let tagSkills = this.state.additional_skills.map((skill) => { 
       return  (
       <Tag isSize="medium">
-        {skill} <Delete isSize="medium" value={skill} onClick={this.delValue.bind(this, "additionalSkill")} />
+        {skill} <Delete isSize="medium" value={skill} onClick={this.delValue.bind(this, "additional_skills")} />
       </Tag> )
     })
 
@@ -209,12 +209,12 @@ class SearchScreen extends Component {
                   </Checkbox>
                 </Control>
               </Field>
-              <Field isGrouped id="language">
-                <Label>Language:</Label>
+              <Field isGrouped id="languages">
+                <Label>Languages:</Label>
                 <Control>
                   <Select
                     isSize="small"
-                    onChange={this.setValue.bind(this, "language")}
+                    onChange={this.setValue.bind(this, "languages")}
                   >
                     <option value="English">English</option>
                     <option value="French">French</option>
@@ -224,7 +224,7 @@ class SearchScreen extends Component {
                   </Select>
                 </Control>
               </Field>
-              <Field isGrouped id="listLanguage">
+              <Field isGrouped id="lists">
                 <Label />
                 <Control>
                   {tagLanguages}
@@ -235,7 +235,7 @@ class SearchScreen extends Component {
                 <Control>
                   <Select
                     isSize="small"
-                    onChange={this.setValue.bind(this, "additionalSkill")}
+                    onChange={this.setValue.bind(this, "additional_skills")}
                   >
                     <option value="agile">Agile</option>
                     <option value="bigData">Big Data</option>
@@ -249,7 +249,7 @@ class SearchScreen extends Component {
                   { tagSkills }
                 </Control>
               </Field>
-              <Field isGrouped id="language">
+              <Field isGrouped id="Score">
                 <Label>Score:</Label>
                 <Input
                   isSize="small"
