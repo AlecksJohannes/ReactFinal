@@ -22,8 +22,8 @@ class SearchScreen extends Component {
     this.state = {
       startPoint: 0,
       endPoint: 10,
-      languages: ["english"],
-      additional_skills: ["agile"]
+      language: ["English"],
+      additionalSkill: ["agile"]
 
     };
   }
@@ -76,17 +76,17 @@ class SearchScreen extends Component {
 
   render() {
 
-    let tagLanguages = this.state.languages.map((lan) => { 
+    let tagLanguages = this.state.language.map((lan) => { 
       return  (
       <Tag isSize="medium">
-        {lan} <Delete isSize="medium" value={lan} onClick={this.delValue.bind(this, "languages")} />
+        {lan} <Delete isSize="medium" value={lan} onClick={this.delValue.bind(this, "language")} />
       </Tag> )
     })
 
-    let tagSkills = this.state.additional_skills.map((skill) => { 
+    let tagSkills = this.state.additionalSkill.map((skill) => { 
       return  (
       <Tag isSize="medium">
-        {skill} <Delete isSize="medium" value={skill} onClick={this.delValue.bind(this, "additional_skills")} />
+        {skill} <Delete isSize="medium" value={skill} onClick={this.delValue.bind(this, "additionalSkill")} />
       </Tag> )
     })
 
@@ -209,12 +209,12 @@ class SearchScreen extends Component {
                   </Checkbox>
                 </Control>
               </Field>
-              <Field isGrouped id="languages">
+              <Field isGrouped id="language">
                 <Label>Languages:</Label>
                 <Control>
                   <Select
                     isSize="small"
-                    onChange={this.setValue.bind(this, "languages")}
+                    onChange={this.setValue.bind(this, "language")}
                   >
                     <option value="English">English</option>
                     <option value="French">French</option>
@@ -235,11 +235,11 @@ class SearchScreen extends Component {
                 <Control>
                   <Select
                     isSize="small"
-                    onChange={this.setValue.bind(this, "additional_skills")}
+                    onChange={this.setValue.bind(this, "additionalSkill")}
                   >
-                    <option value="agile">Agile</option>
-                    <option value="bigData">Big Data</option>
-                    <option value="ecommerce">Ecommerce</option>
+                    <option value="Agile">Agile</option>
+                    <option value="Big Data">Big Data</option>
+                    <option value="Ecommerce">Ecommerce</option>
                   </Select>
                 </Control>
               </Field>
