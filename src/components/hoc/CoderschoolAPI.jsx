@@ -13,7 +13,8 @@ function withResult(WrappedComponent) {
     }
 
     componentDidMount() {
-      getSearchResult().then((response) => {
+      getSearchResult('http://reactfinale.herokuapp.com/students').then((response) => {
+        console.log(response)
         this.setState({
           users: response
         })

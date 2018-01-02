@@ -27,6 +27,7 @@ class SearchResult extends Component {
   }
   render() {
     const child = this.props.fetchUsers.map((data) => {
+      console.log(data.languages)
       return (
         <tr>
           <td>{data.id}</td>
@@ -36,6 +37,9 @@ class SearchResult extends Component {
           <td>{data.experience}</td>
           <td>{data.additional_skill}</td>
           <td>{data.score}</td>
+          <td>{data.languages.map((data) => { return data.name }).join(', ')}</td>
+          <td>{data.nation_languages.map((data) => { return data.name }).join(', ')}</td>
+          <td>{data.additional_skills.map((data) => { return data.name }).join(', ')}</td>
         </tr>
       )
     })
@@ -53,6 +57,9 @@ class SearchResult extends Component {
               <th>Experience</th>
               <th>Additional Skill</th>
               <th>Score</th>
+              <th>Language</th>
+              <th>Nation Language</th>
+              <th>Additional Skills</th>
             </tr>
             <tr>
               <th></th>
@@ -129,6 +136,51 @@ class SearchResult extends Component {
                   options={[
                     { value: JSON.stringify({isAscending: true, option: 'score'}), label: 'Ascending' },
                     { value: JSON.stringify({isAscending: false, option: 'score'}), label: 'Descending' },
+                  ]}
+                />
+              </th>
+              <th>
+               <Select
+                  name="form-field-name"
+                  value={this.state.selectedOption}
+                  onChange={(selectedOption) => {
+                      this.props.filter(selectedOption.value);
+                      this.handleSelection(selectedOption.value)
+                    }
+                  }
+                  options={[
+                    { value: JSON.stringify({isAscending: true, option: 'languages'}), label: 'Ascending' },
+                    { value: JSON.stringify({isAscending: false, option: 'languages'}), label: 'Descending' },
+                  ]}
+                />
+                </th>
+                <th>
+               <Select
+                  name="form-field-name"
+                  value={this.state.selectedOption}
+                  onChange={(selectedOption) => {
+                      this.props.filter(selectedOption.value);
+                      this.handleSelection(selectedOption.value)
+                    }
+                  }
+                  options={[
+                    { value: JSON.stringify({isAscending: true, option: 'nation_languages'}), label: 'Ascending' },
+                    { value: JSON.stringify({isAscending: false, option: 'nation_languages'}), label: 'Descending' },
+                  ]}
+                />
+              </th>
+              <th>
+               <Select
+                  name="form-field-name"
+                  value={this.state.selectedOption}
+                  onChange={(selectedOption) => {
+                      this.props.filter(selectedOption.value);
+                      this.handleSelection(selectedOption.value)
+                    }
+                  }
+                  options={[
+                    { value: JSON.stringify({isAscending: true, option: 'additional_skills'}), label: 'Ascending' },
+                    { value: JSON.stringify({isAscending: false, option: 'additional_skills'}), label: 'Descending' },
                   ]}
                 />
               </th>

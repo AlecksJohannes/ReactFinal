@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class GitHubLogin extends Component {
 	githubLogin = () => {
-    this.fetchDataGithub(window.open(`http://localhost:3000/auth/github`, "cODERSCHOOL", "toolbar=no, scrollbars=no, resizable=no, height=200, width=200"))
+    this.fetchDataGithub(window.open(`http://reactfinale.herokuapp.com/auth/github`, "cODERSCHOOL", "toolbar=no, scrollbars=no, resizable=no, height=200, width=200"))
 	}
 
   fetchDataGithub(popup) {

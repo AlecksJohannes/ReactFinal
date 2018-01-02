@@ -42,7 +42,6 @@ class SearchScreen extends Component {
   }
 
   setValue(field, event) {
-
     var newState = Object.assign({}, this.state);
     if (newState[field] === undefined) {
       newState[field] = [];

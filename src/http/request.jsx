@@ -1,5 +1,5 @@
-function getSearchResult() {
-  return fetch('https://api.myjson.com/bins/gg8yr')
+function getSearchResult(student_link) {
+  return fetch(student_link)
     .then((response) => response.json())
     .then((responseJson) => {
       return responseJson;
