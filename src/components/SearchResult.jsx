@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { Table, Button } from 'bloomer';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import Student2 from '../student2.json';
 
 class SearchResult extends Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class SearchResult extends Component {
   handleSelection(value) {
     console.log(value)
     this.setState({
+      isProfile: false,
+      datatest: Student2,
       selectedOption: value
     })
   }
@@ -43,7 +46,7 @@ class SearchResult extends Component {
         </tr>
       )
     })
-
+    if(this.state.isProfile==false){
     return (
       <div>
         <Button isColor="info" onClick={this.handleBack}>Back</Button> 
@@ -192,6 +195,7 @@ class SearchResult extends Component {
         </Table>
       </div>
     );
+  }
   }
 }
 

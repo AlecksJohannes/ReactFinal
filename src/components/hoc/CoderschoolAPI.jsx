@@ -1,7 +1,6 @@
 import React from 'react';
 import { getSearchResult } from '../../http/request';
 import _ from 'lodash';
-import Student1 from '../../student1.json';
 function withResult(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {

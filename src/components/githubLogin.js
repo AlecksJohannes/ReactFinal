@@ -6,11 +6,12 @@ import axios from 'axios';
 class GitHubLogin extends Component {
 	githubLogin = () => {
     this.fetchDataGithub(window.open(`http://reactfinale.herokuapp.com/auth/github`, "cODERSCHOOL", "toolbar=no, scrollbars=no, resizable=no, height=200, width=200"))
-	}
+  }
 
   fetchDataGithub(popup) {
     if(popup.closed) {
-      window.location.reload();
+      setTimeout(2000);
+      {window.location.reload()}
     } else {
       try {
         var url_code = querystring.parse(popup.location.search)
