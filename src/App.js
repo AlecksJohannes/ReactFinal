@@ -19,23 +19,31 @@ class App extends Component {
     super (props);
     this.state={
       onFilter: true,
-      dataSearch: {}
+      dataSearch: {},
+      onLogin: true
     }
-    this.handleSearch = this.handleSearch.bind(this)
+    this.handleSearch = this.handleSearch.bind(this);
+    this.refresh = this.refresh.bind(this)
   }
 
   handleSearch(filter, data){
     this.setState({
       onFilter: filter,
-      dataSearch: data
+      dataSearch: data,
+      onLogin: true,
     })
   }
+
+  refresh(){
+    window.location.reload();
+  }
+
 
   render() {
     console.log( "this.state:", this.state);  
     let handleScreen = () => {
       if (window.sessionStorage.getItem('key') == null) {
-        return ( <Welcome /> )
+        return ( <Welcome onLogin={this.state.onLogin} refresh={this.refresh}/> )
       }
       else 
         if (this.state.onFilter == true) {

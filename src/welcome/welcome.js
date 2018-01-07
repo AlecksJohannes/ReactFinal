@@ -14,60 +14,21 @@ class Welcome extends Component {
 		this.state = {
 			redirectToReferrer: false
 		}
-		this.signup = this.signup.bind(this);
 		this.responseFacebook = this.responseFacebook.bind(this);
 		this.responseGithub = this.responseGithub.bind(this);
 		this.responseGoogle = this.responseGoogle.bind(this); 
 		// this.facebookLogin = this.facebookLogin.bind(this);
 	}
 
-	signup(res, type) {
-		let postData;
-		if (type === 'facebook' && res.email) {
-			postData = {
-				name: res.name,
-				provider: type,
-				email: res.email,
-				provider_id: res.id,
-				token: res.accessToken,
-				provider_pic: res.provider_pic
-			}
-		}
-		if (type === 'google' && res.w3.U3) {
-			postData = {
-				name: res.w3.ig,
-				provider: type,
-				email: res.w3.U3,
-				provider_id: res.El,
-				token: res.Zi.access_token,
-				provider_pic: res.w3.Paa
-			}
-		}
-
-		PostData('signup', this.state).then((result) => {
-			let responseJson = result;
-			if (responseJson.userData) {
-				sessionStorage.setItem('userData', JSON.stringify(responseJson));
-				this.setState({ redirectToReferrer: true });
-			}
-		})
-	}
-
-
 	responseFacebook = (response) => {
-		console.log("response for facebook")
-		console.log(response);
-		this.signup(response, 'facebook')
+
 	}
-	responseGoogle = response => {
-		console.log(response);
-		this.signup(response, 'google')
+	responseGoogle () {
+		this.props.refresh(this)
 	}
 
-	responseGithub = response => {
-		console.log(response);
-		console.error(response);
-		// this.signup(response, 'github')
+	responseGithub (){
+		this.props.refresh(this)
 	}
 	render() {
 		if (this.state.redirectToReferrer) {
@@ -107,7 +68,7 @@ class Welcome extends Component {
 												// clientId="183626327916-tdd38ls5t4majitojs2uk71otigknj36.apps.googleusercontent.com"
 												// buttonText="Login"
 												// onSuccess={responseGoogle}
-												// onFailure={responseGoogle}
+												responseGoogle={this.responseGoogle}
 											/>
 										</Column>	
 										<Column>
@@ -115,6 +76,7 @@ class Welcome extends Component {
 											// clientId="4ea83a6419765ad541ac"
 											// clientSecret="0ed6be02055077749f68d1f55b4e0cc37739a646"
 											// redirectUri=""
+											responseGithub={this.responseGithub}
 											// onSuccess={responseGithub}
 											// onFailure={responseGithub}
 											/>

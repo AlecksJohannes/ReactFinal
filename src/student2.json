@@ -1,12 +1,28 @@
 {
-"id": 2,
-"full_name": "Davidson Trump",
-"class_taken": "Rails",
-"email": "dtrump1@fema.gov",
-"phone": "978-246-2166",
-"location": "Ning’an",
-"language": "Tamil",
-"additional_skill": "Eyewonder",
-"score": 57,
-"experience": "Mid Level"
+    "profile": {
+        "img": "./src/img/profile_pic_placeholder.png",
+        "id": 2,
+        "full_name": "Domenico Drohan",
+        "email": "ddrohan0@zimbio.com",
+        "phone": "732-140-6273",
+        "class_taken": ["iOS", "Android", "React"],
+        "location": "Pilcuyo",
+        "languages": [{"name" : "English"}, { "name" : "Hungarian"}, { "name" : "Vietnamese"}],
+        "additional_skills": [{ "name": "UK Immigration"}, { "name": "Express"}, { "name": "MongoDB"}, {"name": "Mongoose"}, {"name": "jQuery"}, { "name": "Bootstrap"}],
+        "score": 84,
+        "experience": "Junior",
+        "skills": ["ES6", "HTML5", "CSS3", "NODEJS", "RAILS", "PYTHON", "GIT"]
+    },
+    "intro_video": {
+
+    },
+    "projects": {
+
+    },
+    "employment": {
+
+    },
+    "feedback": {
+
+    }
 }

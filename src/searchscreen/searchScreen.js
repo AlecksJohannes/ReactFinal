@@ -22,7 +22,7 @@ class SearchScreen extends Component {
     this.state = {
       startPoint: 0,
       endPoint: 10,
-      language: ["english"],
+      language: ["English"],
       additionalSkill: ["agile"]
 
     };
@@ -210,7 +210,7 @@ class SearchScreen extends Component {
                 </Control>
               </Field>
               <Field isGrouped id="language">
-                <Label>Language:</Label>
+                <Label>Languages:</Label>
                 <Control>
                   <Select
                     isSize="small"
@@ -224,7 +224,7 @@ class SearchScreen extends Component {
                   </Select>
                 </Control>
               </Field>
-              <Field isGrouped id="listLanguage">
+              <Field isGrouped id="lists">
                 <Label />
                 <Control>
                   {tagLanguages}
@@ -237,9 +237,9 @@ class SearchScreen extends Component {
                     isSize="small"
                     onChange={this.setValue.bind(this, "additionalSkill")}
                   >
-                    <option value="agile">Agile</option>
-                    <option value="bigData">Big Data</option>
-                    <option value="ecommerce">Ecommerce</option>
+                    <option value="Agile">Agile</option>
+                    <option value="Big Data">Big Data</option>
+                    <option value="Ecommerce">Ecommerce</option>
                   </Select>
                 </Control>
               </Field>
@@ -249,7 +249,7 @@ class SearchScreen extends Component {
                   { tagSkills }
                 </Control>
               </Field>
-              <Field isGrouped id="language">
+              <Field isGrouped id="Score">
                 <Label>Score:</Label>
                 <Input
                   isSize="small"
