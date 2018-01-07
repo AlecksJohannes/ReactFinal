@@ -9,6 +9,8 @@ import "bulma/css/bulma.css";
 import { Container, Box } from 'bloomer';
 import SearchResult from './components/SearchResult';
 import { withResult } from './components/hoc/CoderschoolAPI';
+import { sendMail } from './http/request';
+
 const EnhancedSearchResult = withResult(SearchResult);
 
 class App extends Component {
@@ -28,8 +30,6 @@ class App extends Component {
       dataSearch: data
     })
   }
-
-
 
   render() {
     console.log( "this.state:", this.state);  

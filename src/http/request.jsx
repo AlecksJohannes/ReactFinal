@@ -17,5 +17,25 @@ function getSearchResult(student_link, options) {
       console.error(error);
     });
 }
+// TODO: HANDLE YOUR EMAIL HERE, 
+// emails : IS AN JSON ARRAY WITH EMAIL FOR EXAMPLE BELOW
+// body : IS STRING ONLY
+// FOLLOW EXAMPLE BELOW 
+//
+//
+// P/S :TESTED AND WORKS fine
+function sendMail() {
+  fetch('http://reactfinale.herokuapp.com/mail/', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+      emails: '[{"email":"alecksjohanssen@gmail.com"},{"email":"mikeytore@gmail.com"}]',
+      body: 'yourOtherValue',
+    }),
+  });
+}
 
-export { getSearchResult }
+export { getSearchResult, sendMail }
