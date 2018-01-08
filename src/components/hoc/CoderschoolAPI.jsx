@@ -10,8 +10,12 @@ function withResult(WrappedComponent) {
         users: [],
         onFinish: props.onFinish
       }
+      this.handleSelectStudent = this.handleSelectStudent.bind(this)
     }
 
+    handleSelectStudent(){
+      this.props.handleSelectStudent()
+    }
 
     sortCharges(sort) {
       console.log('Hello!');

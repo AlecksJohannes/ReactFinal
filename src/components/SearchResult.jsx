@@ -22,8 +22,9 @@ class SearchResult extends Component {
       selectedOption: value
     })
   }
-  handleSelectStudent() {
-
+  handleSelectStudent(e) {
+    e.preventDefault();
+    this.props.handleSelectStudent()
   }
   render() {
     const child = this.props.fetchUsers.map((data) => {

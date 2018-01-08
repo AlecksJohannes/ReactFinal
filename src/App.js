@@ -10,6 +10,7 @@ import { Container, Box } from 'bloomer';
 import SearchResult from './components/SearchResult';
 import { withResult } from './components/hoc/CoderschoolAPI';
 import { sendMail } from './http/request';
+import Student from './student2.json'
 
 const EnhancedSearchResult = withResult(SearchResult);
 
@@ -21,11 +22,13 @@ class App extends Component {
       onFilter: true,
       dataSearch: {},
       onLogin: true,
-      onFinish: true
+      onFinish: true,
+      onProfile: false
     }
     this.handleSearch = this.handleSearch.bind(this);
     this.refresh = this.refresh.bind(this);
     this.onFinishOk = this.onFinishOk.bind(this);
+    this.handleSelectStudent = this.handleSelectStudent.bind(this)
   }
   onFinishOk(){
     console.log("ok roi nha!")
@@ -39,8 +42,12 @@ class App extends Component {
       onFilter: filter,
       dataSearch: data,
       onLogin: true,
-      onFinish: false
-      
+      onFinish: false,
+    })
+  }
+  handleSelectStudent(){
+    this.setState({
+      onProfile: true      
     })
   }
 
@@ -54,6 +61,7 @@ class App extends Component {
       console.log('refresh:', this.state.dataSearch)
       return(
       <EnhancedSearchResult searchOptions={this.state.dataSearch} 
+      handleSelectStudent = {this.handleSelectStudent}
       onFinish = {this.state.onFinish}
       onFinishOk = {this.onFinishOk}
       />)
@@ -63,8 +71,9 @@ class App extends Component {
         return ( <Welcome onLogin={this.state.onLogin} refresh={this.refresh}/> )
       }
       else 
+        { console.log("onProfile:", this.state.onProfile);
+        if (this.state.onProfile == false)
           {
-            console.log('will you love me?')
           return (
           <div>
             <SearchScreen 
@@ -73,6 +82,12 @@ class App extends Component {
             {refreshSearchResult()}
           </div>)
           }
+         else
+         {
+           return(
+           <Portfolio/>
+          )
+         } }
 
     }
  
