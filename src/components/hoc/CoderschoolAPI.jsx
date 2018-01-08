@@ -4,23 +4,17 @@ import _ from 'lodash';
 function withResult(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
+      console.log('a:', props)
       super(props);
       this.state = {
-        users: []
+        users: [],
+        onFinish: props.onFinish
       }
     }
 
-    componentDidMount() {
-      getSearchResult('http://reactfinale.herokuapp.com/students', this.props.searchOptions).then((response) => {
-        this.setState({
-          // users: [...response,Student1]
-          users: response
-        })
-      })
-    }
 
     sortCharges(sort) {
-      console.log(this.state.users);
+      console.log('Hello!');
       var sort = JSON.parse(sort)
       var sortedCharges
       if(sort.isAscending) {
@@ -34,6 +28,16 @@ function withResult(WrappedComponent) {
     }
 
     render() {
+        if(this.props.onFinish == false){
+        getSearchResult('http://reactfinale.herokuapp.com/students', this.props.searchOptions).then((response) => {
+          this.props.onFinishOk();
+          this.setState({        
+            users: response
+          })
+
+        })
+      }
+      
       return(<WrappedComponent {...this.props}  filter={this.sortCharges.bind(this)} fetchUsers={this.state.users} />)
     } 
   }

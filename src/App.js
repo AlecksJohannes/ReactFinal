@@ -20,17 +20,27 @@ class App extends Component {
     this.state={
       onFilter: true,
       dataSearch: {},
-      onLogin: true
+      onLogin: true,
+      onFinish: true
     }
     this.handleSearch = this.handleSearch.bind(this);
-    this.refresh = this.refresh.bind(this)
+    this.refresh = this.refresh.bind(this);
+    this.onFinishOk = this.onFinishOk.bind(this);
   }
-
+  onFinishOk(){
+    console.log("ok roi nha!")
+    this.setState({
+      onFinish: true
+    })
+  }
   handleSearch(filter, data){
+    console.log('sunny here:', data)
     this.setState({
       onFilter: filter,
       dataSearch: data,
       onLogin: true,
+      onFinish: false
+      
     })
   }
 
@@ -40,26 +50,31 @@ class App extends Component {
 
 
   render() {
-    console.log( "this.state:", this.state);  
+    let refreshSearchResult = () =>{
+      console.log('refresh:', this.state.dataSearch)
+      return(
+      <EnhancedSearchResult searchOptions={this.state.dataSearch} 
+      onFinish = {this.state.onFinish}
+      onFinishOk = {this.onFinishOk}
+      />)
+    } 
     let handleScreen = () => {
       if (window.sessionStorage.getItem('key') == null) {
         return ( <Welcome onLogin={this.state.onLogin} refresh={this.refresh}/> )
       }
       else 
-        if (this.state.onFilter == true) {
-          return (<SearchScreen 
-            handleSearch = {this.handleSearch}
-           />)
-          };
-        if (this.state.onFilter == false) {
-            return (<EnhancedSearchResult searchOptions={this.state.dataSearch} />)
-              // (<EnhancedSearchResult
-              //   onFilter = {this.state.onFilter}
-              //   dataSearch = {this.state.dataSearch}      
-              // />)
-          }  
+          {
+            console.log('will you love me?')
+          return (
+          <div>
+            <SearchScreen 
+              handleSearch = {this.handleSearch}
+            />
+            {refreshSearchResult()}
+          </div>)
+          }
+
     }
-    console.log("handlescreen", handleScreen());  
  
     return (
       <Container>
